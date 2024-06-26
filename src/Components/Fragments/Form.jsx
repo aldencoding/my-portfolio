@@ -127,7 +127,6 @@ const Form = () => {
           </div>
         </div>
       </div>
-      <DevTool control={control} />
     </form>
   );
 };

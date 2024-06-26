@@ -29,7 +29,7 @@ const Home = ({ scrollToContact }) => {
         </div>
         <div className="w-full self-end px-4 lg:w-1/2 lg:px-4">
           <img
-            src="public/tampandanpemberani2.png"
+            src="tampandanpemberani2.png"
             alt="Profil Picture"
             width={"450px"}
           />
