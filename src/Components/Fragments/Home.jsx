@@ -2,37 +2,40 @@ import Button from "../Elements/Button/Button";
 
 const Home = ({ scrollToContact }) => {
   return (
-    <main
-      id="home"
-      className="w-full flex flex-row gap-x-5 justify-center items-center"
-    >
-      <div className="w-1/4 flex flex-col justify-center items-center gap-5">
-        <img
-          src="/tampandanpemberani.jpg"
-          alt=""
-          className="rounded-full w-64 h-64 object-cover"
-        />
-        <div className="flex flex-row my-5 gap-x-7">
-          <img src="/linkedin-logo.png" alt="" className="w-10" />
-          <img src="/whatsapp-logo.png" alt="" className="w-10" />
-          <img src="/facebook-logo.png" alt="" className="w-10" />
-        </div>
-      </div>
-      <div className=" w-2/4 h-screen flex flex-col justify-center">
-        <h1 className="text-4xl mb-2">Hi, i&apos;m Alden Farrel</h1>
-        <h3 className="text-3xl mb-7 ">Front-End Web Dev</h3>
-        <div className="flex flex-col  items-center">
-          <p className="font-light text-justify text-xl">
+    <section className="container mx-auto pt-20">
+      <div className=" flex flex-wrap items-center">
+        <div className="w-full px-4 lg:w-1/2">
+          <h1 className="text-2xl font-semibold text-dark md:text-2xl">
+            Hi everyone 👋,I &apos;am{" "}
+            <span className="text-5xl lg:text-5xl font-bold text-primary block">
+              Alden Farrel
+            </span>
+          </h1>
+          <h3 className="text-2xl mb-3 font-semibold md:text-2xl ">
+            Front-End Web Dev
+          </h3>
+          <p className="text-base leading-relaxed text-secondary mt-3 lg:text-lg">
             I am a graduate of one of the Bootcamps for Full Stack web
-            development. Able to work on projects using a framework with a team
-            and have a high sense of togetherness in building a project.
+            development.
           </p>
-          <div className="flex flex-row gap-5 my-5">
-            <Button title={"Contact Me"} onClick={scrollToContact} />
+          <div className="max-w-sm">
+            <Button
+              title={"Contact Me"}
+              onClick={scrollToContact}
+              color={"primary"}
+              textColor={"white"}
+            />
           </div>
         </div>
+        <div className="w-full self-end px-4 lg:w-1/2 lg:px-4">
+          <img
+            src="public/tampandanpemberani2.png"
+            alt="Profil Picture"
+            width={"450px"}
+          />
+        </div>
       </div>
-    </main>
+    </section>
   );
 };
 export default Home;

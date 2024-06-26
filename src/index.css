@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "inter", sans-serif;
+}
+
+@layer components {
+  .hamburger-active > span:nth-child(1) {
+    @apply rotate-45;
+  }
+  .fixed-nav {
+    @apply fixed z-[9999] bg-white bg-opacity-70;
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1);
+  }
+}

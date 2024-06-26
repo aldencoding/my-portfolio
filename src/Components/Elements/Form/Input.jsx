@@ -1,12 +1,15 @@
-const Input = ({ title, type, name }) => {
+const Input = ({ title, type, name, id, errorMessage, useForm }) => {
   return (
-    <div>
+    <div className="flex flex-col">
+      <label className="text-base font-bold text-primary mb-3">{title}</label>
       <input
-        className="w-full h-9 p-5 border rounded-lg border-solid border-[#2B2A4C] bg-[#ececece3]"
-        placeholder={title}
+        className="w-full bg-slate-200 rounded-md p-3 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
         type={type}
         name={name}
+        id={id}
+        {...useForm}
       />
+      <p className="text-sm text-red-700">{errorMessage}</p>
     </div>
   );
 };
