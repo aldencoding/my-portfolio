@@ -14,25 +14,24 @@ const Form = () => {
   const [submitLoading, setSubmitLoading] = useState(false);
 
   function sendEmail(e) {
-    // emailjs
-    //   .sendForm(
-    //     "service_xuddgyz",
-    //     "template_641601q",
-    //     ref.current,
-    //     "yNQJbolLlZw8vJ2GA"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   );
+    emailjs
+      .sendForm(
+        "service_xuddgyz",
+        "template_641601q",
+        ref.current,
+        "yNQJbolLlZw8vJ2GA"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   }
   useEffect(() => {
     if (isSubmitSuccessful) {
-      console.log(isSubmitSuccessful);
       setSubmitLoading(true);
 
       setTimeout(() => {
@@ -43,7 +42,7 @@ const Form = () => {
         }, 500);
       }, 1000);
     }
-  }, [formState, reset]);
+  }, [formState, isSubmitSuccessful, reset]);
   return (
     <form
       id="contact"
@@ -68,8 +67,7 @@ const Form = () => {
             <Input
               title={"Your Name"}
               type={"text"}
-              name={"user_name"}
-              id={"username"}
+              name={"nama"}
               errorMessage={errors.username?.message}
               useForm={{
                 ...register("username", {
@@ -83,8 +81,7 @@ const Form = () => {
             <Input
               title={"Email Address"}
               type={"email"}
-              name={"user_email"}
-              id={"username"}
+              name={"email"}
               errorMessage={errors.email?.message}
               useForm={{
                 ...register("email", {
