@@ -18,14 +18,14 @@ const Header = ({
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
-    console.log(isMenuOpen);
+    //console.log(isMenuOpen);
   };
 
   //scroll effect
   window.onscroll = function () {
     const header = document.querySelector("header");
     const fixedNav = header.offsetTop;
-    console.log(fixedNav);
+    // console.log(fixedNav);
 
     if (window.scrollY > fixedNav) {
       setIsScroll("fixed-nav transition ease-in-out");

@@ -13,36 +13,27 @@ const Form = () => {
   const ref = useRef();
   const [submitLoading, setSubmitLoading] = useState(false);
 
-  function sendEmail(e) {
+  function sendEmail() {
+    setSubmitLoading(true);
     emailjs
       .sendForm(
         "service_xuddgyz",
-        "template_641601q",
+        "template_xfuh06s",
         ref.current,
         "yNQJbolLlZw8vJ2GA"
       )
       .then(
         (result) => {
-          console.log(result.text);
+          alert("Data Terkirim 📨");
+          setSubmitLoading(false);
+          reset({ user_name: "", user_email: "", message: "" });
         },
         (error) => {
-          console.log(error.text);
+          alert("Terjadi Kesalahan ", error);
+          setSubmitLoading(false);
         }
       );
   }
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      setSubmitLoading(true);
-
-      setTimeout(() => {
-        reset({ username: "", email: "", message: "" });
-        setSubmitLoading(false);
-        setTimeout(() => {
-          alert("data berhasil dikirim");
-        }, 500);
-      }, 1000);
-    }
-  }, [formState, isSubmitSuccessful, reset]);
   return (
     <form
       id="contact"
@@ -67,10 +58,9 @@ const Form = () => {
             <Input
               title={"Your Name"}
               type={"text"}
-              name={"nama"}
               errorMessage={errors.username?.message}
               useForm={{
-                ...register("username", {
+                ...register("user_name", {
                   required: {
                     value: true,
                     message: "username is required!",
@@ -81,10 +71,9 @@ const Form = () => {
             <Input
               title={"Email Address"}
               type={"email"}
-              name={"email"}
               errorMessage={errors.email?.message}
               useForm={{
-                ...register("email", {
+                ...register("user_email", {
                   required: {
                     value: true,
                     message: "email is required!",
@@ -95,7 +84,6 @@ const Form = () => {
           </div>
           <div className="flex flex-col gap-y-10 lg:w-1/2">
             <TextArea
-              name={"message"}
               id={"message"}
               errorMessage={errors.message?.message}
               useForm={{
